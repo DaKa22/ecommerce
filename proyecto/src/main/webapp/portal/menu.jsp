@@ -1,11 +1,4 @@
-<%
-	String username = "";
-	try {
-		username = request.getUserPrincipal().getName();
-	} catch (Exception e) {
-		username = "";
-	}
-%>
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark top">
 	<div class="container">
@@ -20,43 +13,12 @@
 				<li class="nav-item active"><a class="nav-link" href="../">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="../order/">Orders</a></li>
-				<li class="nav-item"><a class="nav-link" href="../category/">Category</a></li>
+				<li class="nav-item"><a class="nav-link" href="../user/">Panel de Control</a></li>
 				<li class="nav-item"><a class="nav-link" href="../cart/">
 						<button type="button" class="btn btn-primary">
 							Shopping Cart <span id="shopping_cart" class="badge badge-light">0</span>
 						</button>
 				</a></li>
-				<%
-					if (username.length() == 0) {
-				%>
-				<li class="nav-item"><a class="nav-link" href="../user/">
-						<button type="button" class="btn btn-success">Login</button>
-				</a></li>
-				<%
-					}
-				%>
-				<%
-					if (username.length() > 0) {
-				%>
-				<li class="nav-item">
-					<div class="btn-group nav-link" role="group">
-						<button id="btnGroupDrop1" type="button"
-							class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							<%=username%>
-						</button>
-						<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-							<a class="dropdown-item" href="../user/">Control Panel</a> <a
-								class="dropdown-item" href="../purchase/">Purchases</a> <a
-								class="dropdown-item" href="../Logout">Logout</a>
-						</div>
-					</div>
-				</li>
-				<%
-					}
-				%>
-
 			</ul>
 		</div>
 	</div>

@@ -29,8 +29,8 @@ public class ReviewService {
 	public Response addReview(@Context HttpServletRequest request, Review review) {
 
 		PurchaseService purchaseService = new PurchaseService();
-		long user_id = purchaseService.getUserId(request);
-
+//		long user_id = purchaseService.getUserId(request);
+		long user_id = 1;
 		DataBase database = new DataBase();
 		Connection connection1 = null;
 		PreparedStatement preparedStatement1 = null;

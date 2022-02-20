@@ -19,22 +19,16 @@
 	<div class="container">
 		<br /> <br /> <br />
 		<div class="list-group">
-			<%
-				String usuario = request.getUserPrincipal().getName();
-				out.println("<h3>Bienvenido: " + usuario + "</h3>");
-				if (request.isUserInRole("CLIENT")) {
-			%>
+			
+			<!--String usuario = request.getUserPrincipal().getName();-->
+				<h3>Bienvenido: Usuario</h3>
+				
 			<a href="../order" class="list-group-item list-group-item-action">
 				Pedidos</a>
-			<%
-				}
-				if (request.isUserInRole("ADMINISTRATOR")) {
-			%>
+			
 			<a href="../category" class="list-group-item list-group-item-action">
 				Gestión de Categorías</a>
-			<%
-				}
-			%>
+			
 		</div>
 		<br /> <br />
 	</div>

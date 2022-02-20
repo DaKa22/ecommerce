@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	<!-- Navigation -->
+	
 	<jsp:include page="../portal/menu.jsp"></jsp:include>
 
 	<!-- Page Content -->
