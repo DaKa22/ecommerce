@@ -17,7 +17,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Ecommerce</title>
+<title>JOPAKA-STORE</title>
+<!-- logo de la pagina-->
+    <link rel="icon" type="image/x-icon" href="../fotosPag/tienda.png" />
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
