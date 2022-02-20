@@ -74,7 +74,7 @@ function addToCart(product_id) {
 	});
 }
 
-/*function getCategoriesCarrusel(category_id) {
+function getCategoriesCarrusel(category_id) {
 	$.getJSON("../ws/portal/categories", function(result) {
 		data = result.data;
 		for (var row = 0; row < data.length; row = row + 1) {
@@ -84,16 +84,10 @@ function addToCart(product_id) {
 			var icon = data[row].icon;
 			var item_class = "list-group-item";
 			$("#carrusel").append(
-				"<a href='' id='category_" + id + "' class='"
-				+ item_class + "'>" + name + "</a>"+
-				
 				"< div class= 'carousel-item active' >"+
 				"<a href='' id='category_" + id + "' "+">"+
-				"<img class='d-block img-fluid'"+ "src='http://placehold.it/900x350' "+
-					"alt='First slide'></a></div>);"
-					
-					src="../fotos/' + icon
-				+ '" alt="">'
+				"<img class='d-block img-fluid'"+ "src='../fotos/categorias/"+icon+"' "+
+					"alt='"+name+"'></a></div>);");
 		}
 	});
-}*/
+}

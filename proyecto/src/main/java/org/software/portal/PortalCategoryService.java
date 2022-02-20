@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+
 import org.software.category.Category;
 import org.software.category.CategoryList;
 import org.software.util.DataBase;
@@ -17,7 +19,7 @@ public class PortalCategoryService {
 	@Path("/categories")
 	@Produces("application/json")
 	public CategoryList read() {
-		ArrayList<Category> categoryList = new ArrayList<Category>();
+		ArrayList<Category> categoryList = new ArrayList<>();
 		DataBase database = new DataBase();
 		Connection connection1 = null;
 		Statement statement1 = null;

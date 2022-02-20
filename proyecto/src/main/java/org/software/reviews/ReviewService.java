@@ -22,36 +22,36 @@ import org.software.util.DataBase;
 
 @Path("/review")
 public class ReviewService {
-	
+
 	@POST
 	@Path("/add")
 	@Produces("application/json")
 	public Response addReview(@Context HttpServletRequest request, Review review) {
-		
+
 		PurchaseService purchaseService = new PurchaseService();
 		long user_id = purchaseService.getUserId(request);
-		
+
 		DataBase database = new DataBase();
 		Connection connection1 = null;
 		PreparedStatement preparedStatement1 = null;
 		String sql = "";
 		String message = "";
 		int inserteds = 0;
-		
+
 		try {
 			connection1 = database.getConnection("client");
-						
+
 			sql = "INSERT INTO reviews (product_id, user_id, rating, comment)";
 			sql += " VALUES (?, ?, ?, ?)";
-			
-			preparedStatement1 = connection1.prepareStatement(sql); 
-			preparedStatement1.setLong(1, review.getProduct_id()); 
+
+			preparedStatement1 = connection1.prepareStatement(sql);
+			preparedStatement1.setLong(1, review.getProduct_id());
 			preparedStatement1.setLong(2, user_id);
 			preparedStatement1.setDouble(3, review.getRating());
 			preparedStatement1.setString(4, review.getComment());
-			
+
 			inserteds = preparedStatement1.executeUpdate();
-		} 
+		}
 		catch (Exception e) {
 			System.out.println("Error: " + e.toString());
 		}
@@ -59,19 +59,19 @@ public class ReviewService {
 			database.closeObject(preparedStatement1);
 			database.closeObject(connection1);
 		}
-		
-		if(inserteds > 0){ 
-			message = "{\"success\":\"1\", \"message\":\"Review inserted successfully\"}"; 
-			return Response.status(200).entity(message).build(); 
-		} 
-		else{ 
-			message = "{\"success\":\"0\", \"message\":\"Error inserting review\"}"; 
-			return Response.status(400).entity(message).build(); 
+
+		if(inserteds > 0){
+			message = "{\"success\":\"1\", \"message\":\"Review inserted successfully\"}";
+			return Response.status(200).entity(message).build();
 		}
-		
+		else{
+			message = "{\"success\":\"0\", \"message\":\"Error inserting review\"}";
+			return Response.status(400).entity(message).build();
+		}
+
 	}
 
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@GET
 	@Path("/list/{product_id}")
@@ -86,11 +86,11 @@ public class ReviewService {
 		try {
 			connection1 = database.getConnection("admin");
 			statement1 = connection1.createStatement();
-			
+
 			sql = "select * from reviews, users where reviews.user_id = users.id";
 			sql = sql + " and reviews.product_id = " + product_id;
 			sql = sql + " order by reviews.created_at DESC";
-			
+
 			rs1 = statement1.executeQuery(sql);
 			while (rs1.next()) {
 				long id = rs1.getLong("id");
@@ -100,9 +100,9 @@ public class ReviewService {
 				double rating = rs1.getDouble("rating");
 				String comment = rs1.getString("comment");
 				Timestamp created_at = rs1.getTimestamp("created_at");
-				
+
 				String created_at_text = new SimpleDateFormat("dd/MM/yyyy").format(created_at.getTime());
-				
+
 				Review review = new Review();
 				review.setId(id);
 				review.setUser_id(user_id);
@@ -121,7 +121,7 @@ public class ReviewService {
 			database.closeObject(statement1);
 			database.closeObject(connection1);
 		}
-		
+
 		return new ReviewList(reviewList);
 	}
 }

@@ -14,8 +14,8 @@ public class Review {
 	Timestamp created_at;
 	String created_at_text;
 	Timestamp updated_at;
-	
-	
+
+
 	public long getId() {
 		return id;
 	}
@@ -82,5 +82,5 @@ public class Review {
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
 	}
-	
+
 }

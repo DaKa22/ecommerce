@@ -7,22 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 public class DataBase {
 	public Connection getConnection(String profile) {
 		Connection connection = null;
-		
-		
+
+
 		String driver = "org.postgresql.Driver";
 		String url = "jdbc:postgresql://localhost:5432/ecommerce";
 		String user = "";
 		String password = "";
-		
-		
+
+
 //		String JndiDataSourceName = "";
-		
+
 		if (profile.equals("admin")) {
 //			JndiDataSourceName = "eCommerceAdminDS";
 			user = "ecommerce_admin";
@@ -38,18 +35,18 @@ public class DataBase {
 			user = "ecommerce_guest";
 			password = "456789";
 		}
-		
+
 		try {
 //			InitialContext ctx = new InitialContext();
 //			DataSource ds = (DataSource)ctx.lookup(JndiDataSourceName);
 //			connection = ds.getConnection();
-			
+
 			Class.forName(driver);
 			connection = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
 			System.out.println("Error: " + e.toString());
-		}	
-		
+		}
+
 		return connection;
 	}
 

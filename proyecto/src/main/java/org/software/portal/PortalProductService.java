@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+
 import org.software.product.Product;
 import org.software.product.ProductList;
 import org.software.util.DataBase;
@@ -19,7 +20,7 @@ public class PortalProductService {
 	@Path("/products/{category}")
 	@Produces("application/json")
 	public ProductList getProducts(@PathParam(value = "category") int category) {
-		ArrayList<Product> productList = new ArrayList<Product>();
+		ArrayList<Product> productList = new ArrayList<>();
 		DataBase database = new DataBase();
 		Connection connection1 = null;
 		Statement statement1 = null;

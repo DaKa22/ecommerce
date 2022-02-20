@@ -22,9 +22,9 @@ public class ProductService {
 	// @Produces("application/xml")
 	public ProductList getProductos(@PathParam(value = "category_id") int category_id) {
 		ArrayList productList = new ArrayList();
-		
+
 		//int category_id = 1;
-		
+
 		DataBase database = new DataBase();
 		Connection conexion1 = null;
 		Statement sentencia1 = null;
@@ -41,7 +41,7 @@ public class ProductService {
 				double pricing = rs1.getDouble("pricing");
 				String short_description = rs1.getString("short_description");
 				String icon = rs1.getString("icon");
-				
+
 				Product product = new Product();
 				product.setId(id);
 				product.setName(name);
@@ -58,17 +58,17 @@ public class ProductService {
 			database.closeObject(sentencia1);
 			database.closeObject(conexion1);
 		}
-		
+
 		return new ProductList(productList);
 	}
-	
+
 	@SuppressWarnings({ "rawtypes", "resource", "unchecked" })
 	@GET
 	@Path("/{product_id}")
 	@Produces("application/json")
 	public ProductList getProductById(@PathParam(value = "product_id") int product_id) {
 		ArrayList productList = new ArrayList();
-		
+
 		DataBase database = new DataBase();
 		Connection conexion1 = null;
 		Statement sentencia1 = null;
@@ -77,7 +77,7 @@ public class ProductService {
 		try {
 			conexion1 = database.getConnection("guest");
 			sentencia1 = conexion1.createStatement();
-			
+
 			double media = 0;
 			sql = "select avg(rating) as media from reviews";
 			sql = sql + " where product_id = " + product_id;
@@ -85,7 +85,7 @@ public class ProductService {
 			if (rs1.next()) {
 				media = rs1.getDouble("media");
 			}
-			
+
 			sql = "select * from products where id = " + product_id;
 			rs1 = sentencia1.executeQuery(sql);
 			while (rs1.next()) {
@@ -96,7 +96,7 @@ public class ProductService {
 				String short_description = rs1.getString("short_description");
 				String long_description = rs1.getString("long_description");
 				String icon = rs1.getString("icon");
-				
+
 				Product product = new Product();
 				product.setId(id);
 				product.setCategory_id(category_id);
@@ -106,7 +106,7 @@ public class ProductService {
 				product.setLong_description(long_description);
 				product.setIcon(icon);
 				product.setMedia(media);
-				
+
 				productList.add(product);
 			}
 		} catch (Exception e) {
@@ -117,7 +117,7 @@ public class ProductService {
 			database.closeObject(sentencia1);
 			database.closeObject(conexion1);
 		}
-		
+
 		return new ProductList(productList);
 	}
 }

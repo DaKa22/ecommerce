@@ -1,7 +1,5 @@
 package org.software.category;
 
-import java.sql.Statement;
-
 @SuppressWarnings("unused")
 public class Category {
 	private long id;
