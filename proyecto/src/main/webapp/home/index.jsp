@@ -28,7 +28,9 @@
 </head>
 <body>
 	<!-- Navigation -->
+	
 	<jsp:include page="../portal/menu.jsp" />
+	
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
@@ -60,6 +62,7 @@
 		var category_id = <%= category_id %>;
 		getCategories(category_id);
 		getProducts(category_id);
+		getCategoriesCarrusel();
 		//updateItemsCount();
 	</script>
 </body>

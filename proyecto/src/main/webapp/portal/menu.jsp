@@ -7,7 +7,11 @@
 	}
 %>
 <!-- Navigation -->
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top "> <!--  fixed-top = creo que era lo que estaba jodiendo-->
+=======
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark top">
+>>>>>>> 126dc06eac00c4c13d76264f9767bfa5e750d33e
 	<div class="container">
 		<a class="navbar-brand" href="../">Jopaka Store</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
