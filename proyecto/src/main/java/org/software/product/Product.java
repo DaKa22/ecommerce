@@ -16,7 +16,7 @@ public class Product {
 	Timestamp created_at;
 	Timestamp updated_at;
 	double media;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -95,5 +95,5 @@ public class Product {
 	public void setMedia(double media) {
 		this.media = media;
 	}
-	
+
 }

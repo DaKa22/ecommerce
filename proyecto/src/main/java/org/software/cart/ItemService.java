@@ -2,21 +2,16 @@ package org.software.cart;
 
 import java.io.StringReader;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.json.Json;
 import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.json.JsonReader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -74,7 +69,7 @@ public class ItemService {
 			JsonObject o = jArray.get(i).asJsonObject();
 
 			int product_id = o.getInt("product_id");
-			double quantity = (double) o.getInt("quantity");
+			double quantity = o.getInt("quantity");
 
 			Item item = (Item) cart.get(i);
 			item.setQuantity(quantity);
@@ -84,8 +79,8 @@ public class ItemService {
 
 		session.setAttribute("cart", cart);
 
-		for (int i = 0; i < cart.size(); i = i + 1) {
-			Item item = (Item) cart.get(i);
+		for (Object element : cart) {
+			Item item = (Item) element;
 			long id = item.getProduct_id();
 			double qty = item.getQuantity();
 			System.out.println(id + "," + qty);
@@ -108,8 +103,8 @@ public class ItemService {
 			cart = new ArrayList();
 		}
 
-		for (int i = 0; i < cart.size(); i = i + 1) {
-			Item item = (Item) cart.get(i);
+		for (Object element : cart) {
+			Item item = (Item) element;
 			long id = item.getProduct_id();
 
 			if (id == product_id) {
@@ -197,14 +192,14 @@ public class ItemService {
 	@Path("/list")
 	@Produces("application/json")
 	public ItemList getItems(@Context HttpServletRequest request) {
-		ArrayList<Item> cart = new ArrayList<Item>();
+		ArrayList<Item> cart = new ArrayList<>();
 
 		HttpSession session = request.getSession();
 
 		cart = (ArrayList<Item>) session.getAttribute("cart");
 
 		if (cart == null) {
-			cart = new ArrayList<Item>();
+			cart = new ArrayList<>();
 		}
 
 		return new ItemList(cart);

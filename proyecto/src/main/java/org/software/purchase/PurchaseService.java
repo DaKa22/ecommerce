@@ -44,7 +44,7 @@ public class PurchaseService {
 			HttpSession session = request.getSession();
 			//long user_id = (long) session.getAttribute("user_id");
 			long user_id = getUserId(request);
-			
+
 			if (purchase_id == 0) {
 				sql = "select id from purchases";
 				sql += " where user_id = " + user_id;
@@ -102,7 +102,7 @@ public class PurchaseService {
 		HttpSession session = request.getSession();
 //		long user_id = (long) session.getAttribute("user_id");
 		long user_id = getUserId(request);
-		
+
 		DataBase database = new DataBase();
 		Connection connection1 = null;
 		Statement statement1 = null;
@@ -169,13 +169,13 @@ public class PurchaseService {
 			try {
 				connection1 = database.getConnection("admin");
 				statement1 = connection1.createStatement();
-				
+
 				sql = "select id from users where username = '" + username + "'";
-				
+
 				System.out.println(sql);
-				
+
 				rs1 = statement1.executeQuery(sql);
-				
+
 				if (rs1.next()) {
 					user_id = rs1.getLong("id");
 				}
@@ -188,9 +188,9 @@ public class PurchaseService {
 				database.closeObject(connection1);
 			}
 		}
-		
+
 		System.out.println("getUserId(): " + user_id);
-		
+
 		return user_id;
 	}
 
@@ -239,15 +239,15 @@ public class PurchaseService {
 		int inserteds = 0;
 
 		HttpSession session = request.getSession();
-		
+
 //		long user_id = (long) session.getAttribute("user_id");
 //		String username = (String) session.getAttribute("username");
-		
+
 //		long user_id = getUserId(request);
 		long user_id = 1;
-		
+
 		System.out.println("(00)" + user_id);
-		
+
 		ArrayList cart = (ArrayList) session.getAttribute("cart");
 
 		if (cart == null) {
@@ -255,43 +255,43 @@ public class PurchaseService {
 		}
 
 		System.out.println("updateItems()(01) " + cart.size());
-		
+
 		if (cart.size() > 0) {
 			long purchase_id = insertPurchase(user_id);
-			
+
 			System.out.println("(00)" + purchase_id);
-			
-			
+
+
 			DataBase database = new DataBase();
 			Connection connection1 = null;
 			Statement statement1 = null;
 			//ResultSet rs1 = null;
 			String sql = "";
-			
+
 			try {
 				connection1 = database.getConnection("client");
 				statement1 = connection1.createStatement();
-				
+
 				//sql = "INSERT INTO purchase_items (purchase_id, product_id, price, quantity) VALUES ";
 				//String separator = "";
-				for (int i = 0; i < cart.size(); i = i + 1) {
-					Item item = (Item) cart.get(i);
+				for (Object element : cart) {
+					Item item = (Item) element;
 					long product_id = item.getProduct_id();
 					double quantity = item.getQuantity();
 					double price = item.getPrice();
-	
+
 					//sql = sql + separator + "(" + purchase_id + "," + product_id + "," + price + "," + quantity + ")";
 					//separator = ", ";
-					
+
 					sql = "INSERT INTO purchase_items (purchase_id, product_id, price, quantity)";
 					sql += " VALUES (" + purchase_id + "," + product_id + "," + price + "," + quantity + ")";
-					
+
 					System.out.println(sql);
-					
+
 					inserteds += statement1.executeUpdate(sql);
-					
+
 				}
-		
+
 			} catch (Exception e) {
 				System.out.println("Error: " + e.toString());
 			} finally {

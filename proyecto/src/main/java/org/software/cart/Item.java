@@ -9,7 +9,7 @@ public class Item {
 	double price;
 	double quantity;
 	long coupon;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -57,5 +57,5 @@ public class Item {
 	}
 	public void setCoupon(long coupon) {
 		this.coupon = coupon;
-	}	
+	}
 }

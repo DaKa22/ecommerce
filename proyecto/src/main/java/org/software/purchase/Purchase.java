@@ -6,9 +6,9 @@ public class Purchase {
 	long id;
 	long user_id;
 	Timestamp created_at;
-	String created_at_text; 
+	String created_at_text;
 	Timestamp updated_at;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -39,5 +39,5 @@ public class Purchase {
 	public void setCreated_at_text(String created_at_text) {
 		this.created_at_text = created_at_text;
 	}
-	
+
 }

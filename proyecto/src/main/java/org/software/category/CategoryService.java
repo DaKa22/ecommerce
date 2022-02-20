@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,6 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+
 import org.software.util.DataBase;
 
 @Path("/category")
@@ -57,7 +59,7 @@ public class CategoryService {
 	@Produces("application/json")
 // @Produces("application/xml")
 	public CategoryList getAll() {
-		ArrayList<Category> categoryList = new ArrayList<Category>();
+		ArrayList<Category> categoryList = new ArrayList<>();
 		DataBase database = new DataBase();
 		Connection connection1 = null;
 		Statement statement1 = null;
