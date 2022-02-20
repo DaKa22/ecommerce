@@ -29,7 +29,6 @@ try {
 	<!-- Navigation -->
 	<jsp:include page="../portal/menu.jsp" />
 	<!-- Page Content -->
-	
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
