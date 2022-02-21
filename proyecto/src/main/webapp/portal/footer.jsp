@@ -1,7 +1,7 @@
-<footer class="py-5 bg-dark">
-	<div class="container">
+<footer class="py-4 bg-dark fixed-bottom">
+	<div class="container "><!-- solo lleva container -->
 		<p class="m-0 text-center text-white">Copyright &copy; 
-			JopakaStore - 2022</p>
+			JopakaStore-2022</p>
 	</div>
 	<!-- /.container -->
 </footer>

@@ -4,16 +4,17 @@
 	<jsp:include page="../portal/menu.jsp" />
 	<!-- Page Content -->
 	<div class="container">
-		<br /> <br /> <br />
+		<br /> <br /> 
 		<div class="list-group">
 			
 			<!--String usuario = request.getUserPrincipal().getName();-->
-				<h3>Bienvenido: Usuario</h3>
+				<h3>Bienvenido: Usuario</h3><br>
 				
-			<a href="../order" class="list-group-item list-group-item-action">
+				
+			<a href="../order" class="btn btn-primary btn-lg btn-block" >
 				Pedidos</a>
 			
-			<a href="../category" class="list-group-item list-group-item-action">
+			<a href="../category" class="btn btn-secondary btn-lg btn-block">
 				Gestión de Categorías</a>
 			
 		</div>
