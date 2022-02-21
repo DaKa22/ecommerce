@@ -1,6 +1,16 @@
 
 <!-- Navigation -->
+<!-- Traductor -->
+<div id="google_translate_element" class="google"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+            }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<!-- finaliza traductor -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
 
 	<div class="container">
 		<a class="navbar-brand" href="../">Jopaka Store</a>
@@ -33,4 +43,14 @@
 	updateItemsCount();
 </script>
 	
-	
+<style>
+	#google_translate_element{
+		z-index: 1031;
+	    top: 24px;
+	    left: 80px;
+	    position: fixed;
+	}
+	.skiptranslate > iframe{
+		display: none;
+	}
+</style>
