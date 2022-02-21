@@ -90,14 +90,14 @@ function getCategoriesCarrusel() {
 
 			if (t == 1) {
 				$("#carrusel").append(
-					"<div class= 'carousel-item active'>" + "<a href='#' id='cat_" + id + "' >" +
+					"<div class= 'carousel-item active'>" + "<a href='../home/?id="+id+"'  id='cat_" + id + "' >" +
 					"<img class='d-block img-fluid'" + "width='900'" + " height='350'" + " src='../fotos/categorias/" + icon + "' " + " alt='" + name + "'></a></div>");
 				$("#carrusel_").append(
 					"<li data-target='#carouselExampleIndicators' data-slide-to='" + c + "'class='active'></li>");
 				t = 2;
 			} else {
 				$("#carrusel").append(
-					"<div class= 'carousel-item'>" + "<a href='#' id='cat_" + id + "' >" +
+					"<div class= 'carousel-item'>" + "<a href='../home/?id="+id+"' id='cat_" + id + "' >" +
 					"<img class='d-block img-fluid'" + "width='900'" + " height='350'" + " src='../fotos/categorias/" + icon + "' " + " alt='" + name + "'></a></div>");
 				$("#carrusel_").append(
 					"<li data-target='#carouselExampleIndicators' data-slide-to='" + c + "'</li>");
