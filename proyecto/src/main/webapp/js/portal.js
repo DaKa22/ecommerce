@@ -79,31 +79,41 @@ function addToCart(product_id) {
 function getCategoriesCarrusel() {
 	$.getJSON("../ws/portal/categories", function(result) {
 		data = result.data;
-		var t=1;
-		var c=0;
+		var t = 1;
+		var c = 0;
 		for (var row = 0; row < data.length; row = row + 1) {
 			var id = data[row].id;
 			var name = data[row].name;
 			var published = data[row].published;
 			var icon = data[row].icon;
 			var item_class = "list-group-item";
-			
-			if(t==1){
+
+			if (t == 1) {
 				$("#carrusel").append(
-				"<div class= 'carousel-item active'>"+"<a href='#' id='cat_" + id + "' >"+
-				"<img class='d-block img-fluid'"+"width='900'"+" height='350'"+ " src='../fotos/categorias/"+icon+"' "+" alt='"+name+"'></a></div>");
+					"<div class= 'carousel-item active'>" + "<a href='#' id='cat_" + id + "' >" +
+					"<img class='d-block img-fluid'" + "width='900'" + " height='350'" + " src='../fotos/categorias/" + icon + "' " + " alt='" + name + "'></a></div>");
 				$("#carrusel_").append(
-				"<li data-target='#carouselExampleIndicators' data-slide-to='"+c+"'class='active'></li>");
-				t=2;
-			}else{
+					"<li data-target='#carouselExampleIndicators' data-slide-to='" + c + "'class='active'></li>");
+				t = 2;
+			} else {
 				$("#carrusel").append(
-				"<div class= 'carousel-item'>"+"<a href='#' id='cat_" + id + "' >"+
-				"<img class='d-block img-fluid'"+"width='900'"+" height='350'"+ " src='../fotos/categorias/"+icon+"' "+" alt='"+name+"'></a></div>");
+					"<div class= 'carousel-item'>" + "<a href='#' id='cat_" + id + "' >" +
+					"<img class='d-block img-fluid'" + "width='900'" + " height='350'" + " src='../fotos/categorias/" + icon + "' " + " alt='" + name + "'></a></div>");
 				$("#carrusel_").append(
-				"<li data-target='#carouselExampleIndicators' data-slide-to='"+c+"'</li>");
+					"<li data-target='#carouselExampleIndicators' data-slide-to='" + c + "'</li>");
 			}
-			c=c+1;
-			
+			c = c + 1;
+
 		}
 	});
 }
+function seleccionar() {
+	$('#fun_cliente').click(function() {
+		$("#acceso").append("<a href='../order' class='list-group-item list-group-item-action'>Pedidos</a>");
+	});
+	$('#fun_admin').click(function() {
+		$("#acceso").append("<a href='../category' class='list-group-item list-group-item-action'>Gestión de Categorías</a>");
+	});
+	
+}
+
