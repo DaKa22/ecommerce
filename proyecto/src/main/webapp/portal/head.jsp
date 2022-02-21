@@ -16,4 +16,5 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!-- Custom styles for this template -->
 <link href="../css/shop-homepage.css" rel="stylesheet">
+
 </head>
