@@ -82,7 +82,7 @@
 	<br />
 
 	<!-- Footer -->
-	<jsp:include page="../portal/footer.jsp"></jsp:include>
+	<jsp:include page="../portal/footer2.jsp"></jsp:include>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>

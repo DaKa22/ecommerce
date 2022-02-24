@@ -12,8 +12,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Item - Start Bootstrap Template</title>
-
+<title>JOPAKA - ITEM</title>
+<!-- logo de la pagina-->
+<link rel="icon" type="image/x-icon" href="../fotosPag/tienda.png" />
 <!-- Bootstrap core CSS -->
 <!--
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

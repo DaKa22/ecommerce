@@ -11,8 +11,7 @@
 				<h3>Bienvenido: Usuario</h3><br>
 				
 				
-			<a href="../order" class="btn btn-primary btn-lg btn-block" >
-				Pedidos</a>
+			<!--  <a href="../order" class="btn btn-primary btn-lg btn-block" >	Pedidos</a> -->
 			
 			<a href="../category" class="btn btn-secondary btn-lg btn-block">
 				Gestión de Categorías</a>
@@ -22,7 +21,7 @@
 	</div>
 	<!-- /.container -->
 	<!-- Footer -->
-	<jsp:include page="../portal/footer.jsp" />
+	<jsp:include page="../portal/footer2.jsp" />
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script
