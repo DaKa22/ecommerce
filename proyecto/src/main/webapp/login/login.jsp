@@ -23,20 +23,17 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-6 login-form-1">
 				<h3>Ingresar al Sistema</h3>
-				<form action="j_security_check" method="post">
+				<form action="../ws/user/login" method="post">
 					<div class="form-group">
-						<input type="text" class="form-control" name="j_username"
+						<input type="text" class="form-control" name="email"
 							placeholder="Your Email *" value="" />
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" name="j_password"
+						<input type="password" class="form-control" name="password"
 							placeholder="Your Password *" value="" />
 					</div>
 					<div class="form-group">
-						<input type="submit" class="btnSubmit" value="Login" />
-					</div>
-					<div class="form-group">
-						<a href="#" class="ForgetPwd">Forget Password?</a>
+						<input type="submit" class="btnSubmit" name ="accion" value="Ingresar" />
 					</div>
 				</form>
 			</div>
@@ -51,13 +48,13 @@
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	
-	<!-- 
+	< 
 	<script src="../js/portal.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			updateItemsCount();
 		});
 	</script>
-	 -->
+	 
 </body>
 </html>

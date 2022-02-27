@@ -35,6 +35,11 @@ public class DataBase {
 			user = "ecommerce_guest";
 			password = "456789";
 		}
+		if (profile.equals("ecommerce")) {
+//			JndiDataSourceName = "eCommerceGuestDS";
+			user = "ecommerce";
+			password = "ecommerce";
+		}
 
 		try {
 //			InitialContext ctx = new InitialContext();

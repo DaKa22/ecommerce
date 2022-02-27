@@ -25,6 +25,7 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="../user/">Panel de Control</a></li>
+			<!-- 	<li class="nav-item"><a class="nav-link" href="../login/login.jsp">Login</a></li> -->
 				<li class="nav-item"><a class="nav-link" href="../cart/">
 						<button type="button" class="btn btn-primary">
 							Shopping Cart <span id="shopping_cart" class="badge badge-light">0</span>

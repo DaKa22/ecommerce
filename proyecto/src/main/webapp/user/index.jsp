@@ -15,6 +15,8 @@
 			
 			<a href="../category" class="btn btn-secondary btn-lg btn-block">
 				Gestión de Categorías</a>
+				<a href="../product" class="btn btn-secondary btn-lg btn-block">
+				Gestión de Productos</a>
 			
 		</div>
 		<br /> <br />
